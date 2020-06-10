@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/TPSController.gd" type="Script" id=1]
+
+[node name="3rdCamera" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="InnerGimbal" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Camera" type="Camera" parent="InnerGimbal"]
+transform = Transform( 1, 0, 0, 0, 0.994745, 0.10238, 0, -0.10238, 0.994745, 0, 1.20433, 3.16134 )

@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Game.cs" type="Script" id=1]
+[ext_resource path="res://prefabs/bg.res" type="PackedScene" id=2]
+[ext_resource path="res://models/gems.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Button.cs" type="Script" id=4]
+
+[node name="game" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 44.475, 0 )
+fov = 15.0
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00530958, 4.22762, -0.0363545 )
+omni_range = 12.7845
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355131, 6.42985, 4.88417 )
+omni_range = 10.8393
+
+[node name="bg" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.82, 0, 0, 0, 1, 0, 0, 0, 1.47, 0.18, -0.9, -1.3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 87.0
+margin_bottom = 36.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Score: 0"
+
+[node name="gems" type="Sprite" parent="."]
+position = Vector2( 52.1329, 180.135 )
+scale = Vector2( 0.734266, 0.730205 )
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 335.372
+margin_top = 180.755
+margin_right = 513.372
+margin_bottom = 240.755
+rect_scale = Vector2( 2, 2 )
+text = "Game over! Play again?"
+script = ExtResource( 4 )
+
+[node name="center" type="Node2D" parent="."]
+position = Vector2( 512, 280 )
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

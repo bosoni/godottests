@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://prefabs/StickmanKB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/GroundSB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Player_Kinematic.gd" type="Script" id=3]
+[ext_resource path="res://scripts/ESC_quit.gd" type="Script" id=4]
+[ext_resource path="res://scripts/AnimBlendingController.gd" type="Script" id=5]
+[ext_resource path="res://scripts/AnimController.gd" type="Script" id=6]
+
+[node name="Test" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999498, -0.0316683, 0, 0.0316683, 0.999498, 0, 1.5351, 5.006 )
+
+[node name="Ground" parent="." instance=ExtResource( 2 )]
+
+[node name="stickman_1" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10972, 0.0212132, -0.0915181 )
+script = ExtResource( 3 )
+
+[node name="Node" type="Node" parent="stickman_1"]
+script = ExtResource( 6 )
+
+[node name="stickman_2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.556496, 0.200484, 0.782003 )
+script = ExtResource( 3 )
+
+[node name="Node" type="Node" parent="stickman_2"]
+script = ExtResource( 5 )

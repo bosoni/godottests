@@ -1,0 +1,32 @@
+# https://kidscancode.org/godot_recipes/physics/godot3_kyn_rigidbody1/
+# note: set the ship’s Angular -> Damp to 5 (editorissa)
+
+extends RigidBody
+
+var engine_thrust = 500;
+var spin_thrust = 25000;
+
+var thrust = Vector2()
+var rotation_dir = 0
+var screensize
+
+func _ready():
+    screensize = get_viewport().get_visible_rect().size
+
+func get_input():
+    if Input.is_action_pressed("ui_up"):
+        thrust = Vector2(engine_thrust, 0)
+    else:
+        thrust = Vector2()
+    rotation_dir = 0
+    if Input.is_action_pressed("ui_right"):
+        rotation_dir += 1
+    if Input.is_action_pressed("ui_left"):
+        rotation_dir -= 1
+
+func _process(delta):
+    get_input()
+
+func _physics_process(delta):
+    set_applied_force(thrust.rotated(rotation))
+    set_applied_torque(rotation_dir * spin_thrust)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://prefabs/DorkKB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/Ground2SB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/ESC_quit.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Player_Kinematic.gd" type="Script" id=4]
+[ext_resource path="res://scripts/Instancing.gd" type="Script" id=5]
+
+[node name="Test" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.958963, 0.28353, 0, -0.28353, 0.958963, 0, 4.51098, 7.19994 )
+
+[node name="script" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="PlayerKB" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -2.84115, 4.29899, 2.13945 )
+script = ExtResource( 4 )
+
+[node name="Ground" parent="." instance=ExtResource( 2 )]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/TestGUI_Label2.gd" type="Script" id=1]
+[ext_resource path="res://scripts/TestGUI_ResetButton.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ESC_quit.gd" type="Script" id=3]
+[ext_resource path="res://scripts/TestGUI_ExitButton2.gd" type="Script" id=4]
+[ext_resource path="res://scripts/TestGUI_ChangeSceneButton3.gd" type="Script" id=5]
+
+[node name="Test" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 191.0
+margin_top = 46.0
+margin_right = 492.0
+margin_bottom = 284.0
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 13.0
+margin_top = 9.0
+margin_right = 288.0
+margin_bottom = 40.0
+text = "GUI test
+"
+
+[node name="Label2" type="Label" parent="Panel"]
+margin_left = 4.0
+margin_top = 201.0
+margin_right = 291.0
+margin_bottom = 234.0
+text = "----
+"
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 17.0
+margin_top = 54.0
+margin_right = 87.0
+margin_bottom = 84.0
+text = "Reset"
+script = ExtResource( 2 )
+
+[node name="Button2" type="Button" parent="Panel"]
+margin_left = 17.0
+margin_top = 107.0
+margin_right = 87.0
+margin_bottom = 134.0
+text = "Exit"
+script = ExtResource( 4 )
+
+[node name="Button3" type="Button" parent="Panel"]
+margin_left = 179.0
+margin_top = 54.0
+margin_right = 279.0
+margin_bottom = 84.0
+text = "Change scene"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

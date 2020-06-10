@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://prefabs/StickmanKB_toon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/GroundSB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/StickmanKB_toon2.tscn" type="PackedScene" id=3]
+
+[node name="Test_Toon" type="Spatial"]
+
+[node name="Ugly_toon2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.249618, 0.17691, 0 )
+
+[node name="Ground" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.981322, 0.00498611, -0.192306, 0, 0.999664, 0.0259192, 0.192371, 0.0254351, -0.980993, -0.413864, 0.45513, -0.672674 )
+
+[node name="Ugly_toon" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.208585, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.99648, 0.0838312, 0, -0.0838312, -0.99648, 0, 4.125, 0 )

@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://models/ground2.escn" type="PackedScene" id=1]
+[ext_resource path="res://terrain/splat.shader" type="Shader" id=2]
+[ext_resource path="res://terrain/grass.png" type="Texture" id=3]
+[ext_resource path="res://terrain/something.png" type="Texture" id=4]
+[ext_resource path="res://terrain/sand.png" type="Texture" id=5]
+[ext_resource path="res://terrain/map.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/sandres = 20.0
+shader_param/earthres = 20.0
+shader_param/rockres = 20.0
+shader_param/splatmap = ExtResource( 6 )
+shader_param/sand = ExtResource( 5 )
+shader_param/earth = ExtResource( 3 )
+shader_param/rock = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+params_cull_mode = 2
+albedo_color = Color( 0, 0.0509804, 0.717647, 0.478431 )
+metallic = 0.36
+roughness = 0.0
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 100, 100 )
+
+[node name="Ground" instance=ExtResource( 1 )]
+
+[node name="Plane" parent="PlanePhysics/PlaneCollision" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="Plane001" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+mesh = null
+
+[node name="edge" type="Spatial" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7536, 0, 0 )
+
+[node name="water" type="MeshInstance" parent="." index="3"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Sun" type="DirectionalLight" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, -0.742198, 0.670181, 0, -0.670181, -0.742198, 0, 6.89474, -3.69113 )
+light_indirect_energy = 1.4

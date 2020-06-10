@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="CapsuleShape" id=1]
+
+[sub_resource type="CapsuleMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.105882, 0.105882, 1 )
+roughness = 0.0
+
+[sub_resource type="PrismMesh" id=4]
+size = Vector3( 4.77, 1.6, 2 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.709804, 0, 0, 1 )
+
+[node name="Player" type="KinematicBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( -2.18557e-008, -8.74228e-008, -0.5, 0, -1, 4.37114e-008, -0.5, 3.82137e-015, 2.18557e-008, 0, -1.09, -0.01 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
