@@ -6,12 +6,12 @@ Made with godot 3.2.
 
 ---
 
-Bilis - just some test which doesnt work well.
 Gems, Memmu - games.
+Bilis - test
 
 TestGD* projects uses gdscript
 TestCD* projects uses c#
 
 Some tests doesnt have a movable camera.
-TestCS_SSAO one can push TAB, F1, F2 keys.
-TestGD_Line - just draw with you mouse.
+TestCS_SSAO - push TAB, F1, F2 keys to change settings.
+TestGD_Line - draw with your mouse.
